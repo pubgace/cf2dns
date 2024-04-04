@@ -38,8 +38,8 @@ else:
 def get_optimization_ip():
     try:
         headers = headers = {'Content-Type': 'application/json'}
-        data = {"key": KEY, "type": "v4" if RECORD_TYPE == "A" else "v6"}
-        response = requests.post('https://api.hostmonit.com/get_optimization_ip', json=data, headers=headers)
+        data = {"key": KEY, "type": "v4" if RECORD_TYPE == "A" else "v6","cdn_server":1}
+        response = requests.post('https://monitor.gacjie.cn/api/client/get_ip_address', json=data, headers=headers)
         if response.status_code == 200:
             return response.json()
         else:
